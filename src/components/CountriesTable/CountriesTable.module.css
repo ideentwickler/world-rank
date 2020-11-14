@@ -96,6 +96,10 @@
     flex: 4;
 }
 
+.heading_flag {
+    flex: 1;
+}
+
 .flag {
     flex: 1;
 

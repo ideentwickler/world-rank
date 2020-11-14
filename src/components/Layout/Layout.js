@@ -4,6 +4,7 @@ import Link from "next/link";
 import {Brightness2Rounded, Brightness6Rounded, WbSunnyRounded} from "@material-ui/icons";
 import {useEffect, useState} from "react";
 import SimpleMenu from "../Menu/Menu";
+import Image from "next/image";
 
 
 const Layout = ({children}) => {

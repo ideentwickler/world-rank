@@ -108,6 +108,7 @@ const Country = ({ country }) => {
                                         </div>
                                     </Link>
                                 ))}
+                                {borders.length === 0 && <p>This Country has no Neighbourhood!</p>}
                             </div>
                         </div>
 

@@ -30,10 +30,14 @@ export default function SimpleMenu() {
             >
                 <MenuItem style={{color: '#21b6b7'}} onClick={handleClose}>
                     <Link href="/">
-                        Home
+                        Countries
                     </Link>
                 </MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>
+                    <Link href="/news">
+                        News
+                    </Link>
+                </MenuItem>
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
             </Menu>
         </div>
