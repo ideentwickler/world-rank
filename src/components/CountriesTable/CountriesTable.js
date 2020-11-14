@@ -1,7 +1,7 @@
 import styles from './CountriesTable.module.css'
 import {KeyboardArrowDownRounded, KeyboardArrowUpRounded} from "@material-ui/icons";
 import {useState} from "react";
-import Link from "next/Link";
+import Link from "next/link";
 
 /*  https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
     Ist compareFunction(a, b) größer als 0, sortiere b auf einen niedrigeren Index als a, d. h. b kommt zuerst.
