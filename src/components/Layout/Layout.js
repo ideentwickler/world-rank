@@ -58,6 +58,7 @@ const Layout = ({children}) => {
 
                 <div className={styles.themeSwitcher}>
                     <button className={styles.themeSwitcher} onClick={switchTheme}>
+                        {theme === "" && <Brightness2Rounded />}
                         {theme === "light" && <Brightness2Rounded />}
                         {theme === "dark" && <WbSunnyRounded />}
                     </button>
