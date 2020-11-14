@@ -8,7 +8,6 @@ import SimpleMenu from "../Menu/Menu";
 
 const Layout = ({children}) => {
     const [theme, setTheme] = useState("light");
-    const [themeButton, setThemeButton] = useState("light");
 
     useEffect(() => {
         document.documentElement.setAttribute(
@@ -17,6 +16,8 @@ const Layout = ({children}) => {
 
         setTheme(localStorage.getItem("theme"));
     }, []);
+
+    console.log("hehe");
 
     const switchTheme = () => {
         if (theme === "light") {
@@ -58,9 +59,9 @@ const Layout = ({children}) => {
 
                 <div className={styles.themeSwitcher}>
                     <button className={styles.themeSwitcher} onClick={switchTheme}>
-                        {theme === "" && <Brightness2Rounded />}
                         {theme === "light" && <Brightness2Rounded />}
                         {theme === "dark" && <WbSunnyRounded />}
+                        {(!theme) && <WbSunnyRounded />}
                     </button>
                 </div>
 
