@@ -9,10 +9,16 @@ import SimpleMenu from "../Menu/Menu";
 const Layout = ({children}) => {
     const [theme, setTheme] = useState("light");
 
+
     useEffect(() => {
         document.documentElement.setAttribute(
             "data-theme", localStorage.getItem("theme")
         );
+
+        const no_theme = localStorage.getItem("theme");
+        if (!no_theme) {
+            localStorage.setItem("theme", "light");
+        }
 
         setTheme(localStorage.getItem("theme"));
     }, []);
