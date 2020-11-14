@@ -2,6 +2,7 @@ import styles from './country.module.css'
 import Layout from "../../components/Layout/Layout";
 import {useEffect, useState} from "react";
 import Link from "next/link";
+import CountryModal from "../../components/CountryModal/CountryModal";
 
 const getCountry = async (id) => {
     const res = await fetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
@@ -109,6 +110,13 @@ const Country = ({ country }) => {
                                 ))}
                             </div>
                         </div>
+
+                        <div className={styles.details_panel_row}>
+                            <div className={styles.details_panel_label}>Wanna know more?</div>
+                            <div className={styles.details_panel_modal}><CountryModal country={country} /></div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>

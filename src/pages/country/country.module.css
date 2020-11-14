@@ -106,3 +106,11 @@
         grid-column: 5 / span 8;
     }
 }
+
+.details_panel_modal button {
+    flex: 1;
+    background-color: transparent;
+    outline: none;
+    border: 0px;
+    cursor: pointer;
+}

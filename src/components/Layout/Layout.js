@@ -60,7 +60,10 @@ const Layout = ({children}) => {
             </main>
 
             <footer className={styles.footer}>
-                footer
+                <div>
+                    Jan says thx <sup>2</sup> Thu Nghiem for that <a href="https://www.youtube.com/watch?v=v8o9iJU5hEA">Tutorial</a><br />
+                    &copy; 2020 by the opensource-world. Also Tributes <sup>2</sup> React and Next.js
+                </div>
             </footer>
         </div>
     );
