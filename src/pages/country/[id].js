@@ -1,6 +1,7 @@
 import styles from './country.module.css'
 import Layout from "../../components/Layout/Layout";
 import {useEffect, useState} from "react";
+import Link from "next/link";
 
 const getCountry = async (id) => {
     const res = await fetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
@@ -95,14 +96,16 @@ const Country = ({ country }) => {
                             </div>
 
                             <div className={styles.details_panel_borders_container}>
-                                {borders.map(({ flag, name }) => (
-                                    <div className={styles.details_panel_borders_country}>
-                                        <img src={flag} alt={name}></img>
+                                {borders.map(({ flag, name, alpha3Code }) => (
+                                    <Link href={`/country/${alpha3Code}`} key={alpha3Code}>
+                                        <div className={styles.details_panel_borders_country}>
+                                            <img src={flag} alt={name}></img>
 
-                                        <div className={styles.details_panel_borders_name}>
-                                            {name}
+                                            <div className={styles.details_panel_borders_name}>
+                                                {name}
+                                            </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 ))}
                             </div>
                         </div>

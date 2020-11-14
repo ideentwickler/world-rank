@@ -16,6 +16,11 @@
     margin-bottom: 32px;
 }
 
+.header img {
+    border-radius: 5px;
+    border-color: #eef3f6;
+}
+
 .footer {
     margin-top: 32px;
     text-align: center;
@@ -28,7 +33,7 @@
     padding: 0;
 
     color: var(--text-color-secondary);
-    margin-left: 4px;
+    margin-left: 16px;
 
     display: flex;
     justify-content: center;
