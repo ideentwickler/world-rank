@@ -36,10 +36,12 @@ function getTranslations (props)  {
     *  value ist kein Array => Object! Über Entries extrahieren, dann mappen!
     * */
     const listitems = Object.entries(value);
-    const valueItems = listitems.map((key, value) => <div key={key}>
-        <div>Language Code: {key}</div>
-        <div>Translation: {value}</div>
+    console.log(listitems);
+    const valueItems = listitems.map(([k, v], value) => <div key={k}>
+        <div>{k.toUpperCase()}</div>
+        <div>{v}</div>
     </div>)
+    console.log(valueItems);
     return valueItems;
 }
 
@@ -57,20 +59,10 @@ export default function SimpleModal(props) {
         setOpen(false);
     };
 
-    const listTranslations = ({props}) => {
-        const value = props.country;
-        console.log("test");
-        const listItems = value.translations.map((st, sx) => <div>
-            {st} - {sx}
-        </div>)
-        return listItems;
-    };
-
     const body = (
         <div className={styles.modal_container}>
             <h2 className={styles.details_panel_heading}>{props.country.name}</h2>
             <div className={styles.details_panel_value}>
-                {props.country.name}
                 {getTranslations(props)}
             </div>
         </div>
