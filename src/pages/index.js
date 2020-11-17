@@ -1,14 +1,30 @@
+import React from "react";
 import Layout from "../components/Layout/Layout";
 import SearchInput from "../components/SearchInput/SearchInput";
 import styles from "../styles/Home.module.css"
 import CountriesTable from "../components/CountriesTable/CountriesTable";
 import {useState} from "react";
+import gql from "graphql-tag";
+import { useQuery } from '@apollo/react-hooks';
+
+const NEWS_QUERY = gql`query MyQuery {
+    news {
+        id
+        title
+        body
+    }
+}`
+
 
 export default function Home( {countries} ) {
   const [keyword, setKeyword] = useState("");
-  const [filteredLength, setFilteredLength] = useState(countries.length)
 
-  const filteredCountries = countries.filter(country =>
+    const { data, loading, error } = useQuery(NEWS_QUERY);
+    console.log(data);
+    console.log(loading);
+    console.log(error);
+
+    const filteredCountries = countries.filter(country =>
       country.name.toLowerCase().includes(keyword) ||
       country.region.toLowerCase().includes(keyword) ||
       country.subregion.toLowerCase().includes(keyword)
@@ -32,7 +48,7 @@ export default function Home( {countries} ) {
 
         </div>
 
-        <CountriesTable countries={filteredCountries}/>
+        <CountriesTable countries={filteredCountries.slice(0,3)}/>
       </Layout>
   );
 }

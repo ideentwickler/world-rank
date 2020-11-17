@@ -4,6 +4,31 @@
     padding: 20px;
 }
 
+.heading_news {
+    flex: auto;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.heading_news button {
+    flex: 2;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.heading_id {
+    flex: 1;
+    justify-content: left;
+    display: flex;
+    margin-left: 60px;
+}
+
+.heading_title {
+    flex: 1;
+    text-align: left;
+    display: flex;
+}
+
 .heading button {
     flex: 4;
     border: none;
@@ -29,6 +54,7 @@
     justify-content: center;
     align-items: center;
 }
+
 
 .heading_name {
     justify-content: flex-start;
@@ -76,6 +102,8 @@
 
     font-weight: 500;
 }
+
+
 
 .name {
     flex: 4;
