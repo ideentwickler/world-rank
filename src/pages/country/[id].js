@@ -23,9 +23,13 @@ const Country = ({ country }) => {
         setBorders(borders);
     };
 
+    /* bugfix! neighbours countrys didnt refresh after switch to other country
+        https://github.com/facebook/react/issues/14066
+        borders daher in [] array mitgegeben!
+     */
     useEffect(() => {
         getBorders();
-    }, []);
+    }, [borders]);
 
     console.log(borders);
 
@@ -98,7 +102,8 @@ const Country = ({ country }) => {
 
                             <div className={styles.details_panel_borders_container}>
                                 {borders.map(({ flag, name, alpha3Code }) => (
-                                    <Link href={`/country/${alpha3Code}`} key={alpha3Code}>
+                                    <div key={alpha3Code}>
+                                    <Link href={`/country/${alpha3Code}`}>
                                         <div className={styles.details_panel_borders_country}>
                                             <img src={flag} alt={name}></img>
 
@@ -107,8 +112,18 @@ const Country = ({ country }) => {
                                             </div>
                                         </div>
                                     </Link>
+                                    </div>
                                 ))}
                                 {borders.length === 0 && <p>This Country has no Neighbourhood!</p>}
+
+                                <div>
+                                    {country.borders.map(({ flag, name, alpha3code}) => (
+                                        <p>{name}</p>
+                                    ))}
+                                    ...
+                                    {country.borders}
+                                </div>
+
                             </div>
                         </div>
 
