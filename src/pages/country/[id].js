@@ -14,6 +14,7 @@ const getCountry = async (id) => {
 
 const Country = ({ country }) => {
     const [borders, setBorders] = useState([]);
+    const [newborders, setNewborders] = useState([]);
 
     const getBorders = async () => {
         const borders = await Promise.all(
@@ -24,21 +25,21 @@ const Country = ({ country }) => {
     };
 
     /* bugfix! neighbours countrys didnt refresh after switch to other country
-        https://github.com/facebook/react/issues/14066
-        borders daher in [] array mitgegeben!
+        https://stackoverflow.com/questions/53070970/infinite-loop-in-useeffect
+        getBorders() run when [country] changes!!!!
      */
     useEffect(() => {
         getBorders();
-    }, [borders]);
+    }, [country]);
 
-    console.log(borders);
+    console.log(country);
 
     return (
         <Layout title={country.name}>
             <div className={styles.container}>
                 <div className={styles.container_left}>
                     <div className={styles.overview_panel}>
-                        <img src={country.flag} alt={country.name}></img>
+                        <img src={country.flag} alt={country.name} />
 
                         <h1 className={styles.overview_name}>{country.name}</h1>
                         <div className={styles.overview_region}>{country.region}</div>
@@ -115,15 +116,6 @@ const Country = ({ country }) => {
                                     </div>
                                 ))}
                                 {borders.length === 0 && <p>This Country has no Neighbourhood!</p>}
-
-                                <div>
-                                    {country.borders.map(({ flag, name, alpha3code}) => (
-                                        <p>{name}</p>
-                                    ))}
-                                    ...
-                                    {country.borders}
-                                </div>
-
                             </div>
                         </div>
 

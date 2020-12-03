@@ -1,0 +1,10 @@
+.heading {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 250px;
+}
+
+.input input {
+    flex: 1;
+    justify-content: center;
+}
